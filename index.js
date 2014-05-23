@@ -37,7 +37,6 @@ module.exports = function(fc){
         }
       }
       multiPolygon.geometry.coordinates = pluckCoods(geometries)
-      done(err, multiPolygon)
       return multiPolygon;
       break
   }
