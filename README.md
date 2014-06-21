@@ -4,6 +4,26 @@ turf-combine
 
 Combines feature collection of point, linestring, or polygon features into multipoint, multilinestring, or multipolygon features.
 
+###Install
+
+```sh
+npm install turf-combine
+```
+
+###Parameters
+
+|name|description|
+|---|---|
+|fc|A Feature or FeatureCollection of any type|
+
+###Usage
+
+```js
+combine(fc)
+```
+
+###Example
+
 ```js
 var combine = require('turf-combine')
 var point = require('turf-point')
