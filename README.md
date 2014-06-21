@@ -2,7 +2,7 @@ turf-combine
 ============
 [![build status](https://secure.travis-ci.org/Turfjs/turf-combine.png)](http://travis-ci.org/Turfjs/turf-combine)
 
-Combines feature collection of point, linestring, or polygon features into multipoint, multilinestring, or multipolygon features.
+Combines a FeatureCollection of point, linestring, or polygon Features into multipoint, multilinestring, or multipolygon Features.
 
 ###Install
 
