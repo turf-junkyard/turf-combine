@@ -7,10 +7,10 @@ var combine = require('./')
 
 test('combine', function(t){
   // MultiPoint
-  var p1 = point(50, 51)
-  var p2 = point(100, 101)
+  var pt1 = point(50, 51)
+  var pt2 = point(100, 101)
 
-  var multiPt = combine(featurecollection([p1, p2]))
+  var multiPt = combine(featurecollection([pt1, pt2]))
 
   t.ok(multiPt, 'should should combine two points into a MultiPoint')
   t.deepEqual(multiPt.geometry.coordinates, [[50, 51], [100, 101]])
