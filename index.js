@@ -1,8 +1,8 @@
 module.exports = function(fc){
-  var type = fc.features[0].geometry.type
-  var err
+  var type = fc.features[0].geometry.type;
+  var err;
   var geometries = fc.features.map(function(f){
-    return f.geometry
+    return f.geometry;
   })
 
   switch(type){
@@ -13,8 +13,8 @@ module.exports = function(fc){
           type: 'MultiPoint',
           coordinates: []
         }
-      }
-      multiPoint.geometry.coordinates = pluckCoods(geometries)
+      };
+      multiPoint.geometry.coordinates = pluckCoods(geometries);
       return multiPoint;
       break
     case 'LineString':
@@ -24,7 +24,7 @@ module.exports = function(fc){
           type: 'MultiLineString',
           coordinates: []
         }
-      }
+      };
       multiLineString.geometry.coordinates = pluckCoods(geometries)
       return multiLineString;
       break
@@ -35,7 +35,7 @@ module.exports = function(fc){
           type: 'MultiPolygon',
           coordinates: []
         }
-      }
+      };
       multiPolygon.geometry.coordinates = pluckCoods(geometries)
       return multiPolygon;
       break
@@ -45,5 +45,5 @@ module.exports = function(fc){
 function pluckCoods(multi){
   return multi.map(function(geom){
     return geom.coordinates
-  })
+  });
 }
