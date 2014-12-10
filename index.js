@@ -44,6 +44,6 @@ module.exports = function(fc){
 
 function pluckCoods(multi){
   return multi.map(function(geom){
-    return geom.coordinates
+    return geom.coordinates;
   });
 }
