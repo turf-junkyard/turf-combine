@@ -1,5 +1,5 @@
 var combine = require('./');
-var Benchmark = require('Benchmark');
+var Benchmark = require('benchmark');
 var fs = require('fs');
 var point = require('turf-point');
 var linestring = require('turf-linestring');
