@@ -2,13 +2,15 @@
 * Combines a FeatureCollection of point, linestring, or polygon Features into multipoint, multilinestring, or multipolygon Features.
 *
 * @module turf/combine
-* @param {FeatureCollection} fc - a Feature or FeatureCollection of any type
-* @return {FeatureCollection} combined - a FeatureCollection of corresponding type to input
+* @param {FeatureCollection} fc a Feature or FeatureCollection of any type
+* @return {FeatureCollection} a FeatureCollection of corresponding type to input
 * @example
 * var pt1 = turf.point(50, 1);
 * var pt2 = turf.point(100, 101);
 * var fc = turf.featurecollection([pt1, pt2]);
+*
 * var combined = turf.combine(fc);
+*
 * //=combined
 */
 
