@@ -7,8 +7,8 @@ var combine = require('./')
 
 test('combine', function(t){
   // MultiPoint
-  var pt1 = point(50, 51)
-  var pt2 = point(100, 101)
+  var pt1 = point([50, 51])
+  var pt2 = point([100, 101])
 
   var multiPt = combine(featurecollection([pt1, pt2]))
 
