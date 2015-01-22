@@ -1,39 +1,46 @@
-turf-combine
-============
+# turf-combine
+
 [![build status](https://secure.travis-ci.org/Turfjs/turf-combine.png)](http://travis-ci.org/Turfjs/turf-combine)
 
-Combines a FeatureCollection of point, linestring, or polygon Features into multipoint, multilinestring, or multipolygon Features.
+turf combine module
 
-###Install
+
+### `turf.combine(fc)`
+
+Combines a FeatureCollection of Point, LineString, or Polygon features into MultiPoint, MultiLineString, or MultiPolygon features.
+
+
+### Parameters
+
+| parameter | type              | description                     |
+| --------- | ----------------- | ------------------------------- |
+| `fc`      | FeatureCollection | a FeatureCollection of any type |
+
+
+### Example
+
+```js
+var fc = turf.featurecollection([
+  turf.point([19.026432, 47.49134]),
+  turf.point([19.074497, 47.509548])
+]);
+
+var combined = turf.combine(fc);
+
+//=combined
+```
+
+## Installation
+
+Requires [nodejs](http://nodejs.org/).
 
 ```sh
-npm install turf-combine
+$ npm install turf-combine
 ```
 
-###Parameters
+## Tests
 
-|name|description|
-|---|---|
-|fc|A Feature or FeatureCollection of any type|
-
-###Usage
-
-```js
-combine(fc)
+```sh
+$ npm test
 ```
 
-###Example
-
-```js
-var combine = require('turf-combine')
-var point = require('turf-point')
-var featurecollection = require('turf-featurecollection')
-
-var pt1 = point(50, 1)
-var pt2 = point(100, 101)
-var fc = featurecollection([pt1, pt2])
-
-var combined = combine(fc)
-
-console.log(combined)
-```
