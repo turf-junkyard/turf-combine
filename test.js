@@ -41,14 +41,16 @@ test('combine', function(t){
         [101.0,0.0],
         [101.0,1.0],
         [100.0,1.0],
-        [100.0,0.0]
+        [100.0,0.0],
+        [20.0,0.0]
       ]
     ])
   var p2 = polygon([
       [
         [30.0,0.0],
         [102.0,0.0],
-        [103.0,1.0]
+        [103.0,1.0],
+        [30.0,0.0]
       ]
     ])
     var multiPoly = combine(featurecollection([p1, p2]))
@@ -56,8 +58,8 @@ test('combine', function(t){
     t.ok(multiPoly, 'should should combine two Polygons into a MultiPolygon')
     t.equal(multiPoly.geometry.type, 'MultiPolygon')
     t.deepEqual(multiPoly.geometry.coordinates, 
-        [[[[20,0],[101.0,0.0],[101.0,1.0],[100.0,1.0],[100.0,0.0]]], 
-        [[[30.0,0.0],[102.0,0.0],[103.0,1.0]]]])
+        [[[[20,0],[101.0,0.0],[101.0,1.0],[100.0,1.0],[100.0,0.0],[20,0]]], 
+        [[[30.0,0.0],[102.0,0.0],[103.0,1.0],[30.0,0.0]]]])
 
 
   t.end()
