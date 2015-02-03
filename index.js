@@ -31,49 +31,44 @@
 * //=combined
 */
 
-module.exports = function(fc){
+module.exports = function(fc) {
   var type = fc.features[0].geometry.type;
-  var err;
-  var geometries = fc.features.map(function(f){
+  var geometries = fc.features.map(function(f) {
     return f.geometry;
-  })
+  });
 
-  switch(type){
+  switch (type) {
     case 'Point':
-      var multiPoint = {
+      return {
         type: 'Feature',
+        properties: {},
         geometry: {
           type: 'MultiPoint',
-          coordinates: []
+          coordinates: pluckCoods(geometries)
         }
       };
-      multiPoint.geometry.coordinates = pluckCoods(geometries);
-      return multiPoint;
-      break
     case 'LineString':
-      var multiLineString = {
+      return {
         type: 'Feature',
+        properties: {},
         geometry: {
           type: 'MultiLineString',
-          coordinates: []
+          coordinates: pluckCoods(geometries)
         }
       };
-      multiLineString.geometry.coordinates = pluckCoods(geometries)
-      return multiLineString;
-      break
     case 'Polygon':
-      var multiPolygon = {
+      return {
         type: 'Feature',
+        properties: {},
         geometry: {
           type: 'MultiPolygon',
-          coordinates: []
+          coordinates: pluckCoods(geometries)
         }
       };
-      multiPolygon.geometry.coordinates = pluckCoods(geometries)
-      return multiPolygon;
-      break
+    default:
+      return fc;
   }
-}
+};
 
 function pluckCoods(multi){
   return multi.map(function(geom){
