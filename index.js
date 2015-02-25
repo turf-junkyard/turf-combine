@@ -3,8 +3,8 @@
  *
  * @module turf/combine
  * @category misc
- * @param {FeatureCollection} fc a FeatureCollection of any type
- * @return {FeatureCollection} a FeatureCollection of corresponding type to input
+ * @param {FeatureCollection<(Point|LineString|Polygon)>} fc a FeatureCollection of any type
+ * @return {FeatureCollection<(MultiPoint|MultiLineString|MultiPolygon)>} a FeatureCollection of corresponding type to input
  * @example
  * var fc = {
  *   "type": "FeatureCollection",
