@@ -71,8 +71,8 @@ module.exports = function(fc) {
   }
 };
 
-function pluckCoods(multi){
-  return multi.map(function(geom){
+function pluckCoods(multi) {
+  return multi.map(function(geom) {
     return geom.coordinates;
   });
 }
