@@ -35,35 +35,41 @@
 module.exports = function(fc) {
   var type = fc.features[0].geometry.type;
   var geometries = fc.features.map(function(f) {
-    return f.geometry;
+    if (f.geometry.type === 'Point' ||
+      f.geometry.type === 'LineString' ||
+      f.geometry.type === 'Polygon') return [f.geometry.coordinates];
+    return f.geometry.coordinates;
   });
 
   switch (type) {
     case 'Point':
+    case 'MultiPoint':
       return {
         type: 'Feature',
         properties: {},
         geometry: {
           type: 'MultiPoint',
-          coordinates: pluckCoods(geometries)
+          coordinates: pluckCoords(geometries)
         }
       };
     case 'LineString':
+    case 'MultiLineString':
       return {
         type: 'Feature',
         properties: {},
         geometry: {
           type: 'MultiLineString',
-          coordinates: pluckCoods(geometries)
+          coordinates: pluckCoords(geometries)
         }
       };
     case 'Polygon':
+    case 'MultiPolygon':
       return {
         type: 'Feature',
         properties: {},
         geometry: {
           type: 'MultiPolygon',
-          coordinates: pluckCoods(geometries)
+          coordinates: pluckCoords(geometries)
         }
       };
     default:
@@ -71,8 +77,8 @@ module.exports = function(fc) {
   }
 };
 
-function pluckCoods(multi) {
-  return multi.map(function(geom) {
-    return geom.coordinates;
-  });
+function pluckCoords(multi) {
+  return multi.reduce(function(memo, coords) {
+    return memo.concat(coords);
+  }, []);
 }
